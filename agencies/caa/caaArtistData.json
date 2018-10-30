@@ -1,4 +1,4 @@
-[
+var caaArtists = [
   "3LAU",
   "APRE",
   "Air",
@@ -238,3 +238,5 @@
   "Zero 7",
   "††† (CROSSES)"
 ]
+
+module.exports = caaArtists;
