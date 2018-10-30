@@ -33,7 +33,7 @@ nightmare
   .end()
   .then(result => {
     fs.writeFile(
-      'utaArtistData.json',
+      './agencies/uta/utaArtistData.json',
       JSON.stringify(result, null, '\t'),
       function(err) {
         if (!err) {
