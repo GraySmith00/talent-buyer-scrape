@@ -24,7 +24,7 @@ nightmare
   .end()
   .then(result => {
     fs.writeFile(
-      'caaArtistData.json',
+      './agencies/caa/caaArtistData.json',
       JSON.stringify(result, null, '\t'),
       function(err) {
         if (!err) {
