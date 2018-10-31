@@ -1,0 +1,57 @@
+[
+	{
+		"name": "3LAU",
+		"agency": "TEST",
+		"songkick_id": 4733488,
+		"image_url": "https://i.scdn.co/image/858a31c68b3379a0e7e64b81b74e6b3362cdddcd",
+		"popularity": 62,
+		"spotify_followers": 228187,
+		"spotify_url": "https://open.spotify.com/artist/4YLQaW1UU3mrVetC8gNkg5",
+		"spotify_id": "4YLQaW1UU3mrVetC8gNkg5",
+		"genres": "big room, brostep, deep big room, edm, electro house, electronic trap, mashup, pop, progressive electro house, progressive house, tropical house, tropical pop edm"
+	},
+	{
+		"name": "APRE",
+		"agency": "TEST",
+		"songkick_id": 9480894,
+		"image_url": "https://i.scdn.co/image/860a9d4e76e11e8f0ce9dd96629877d2ed1e4be3",
+		"popularity": 43,
+		"spotify_followers": 1856,
+		"spotify_url": "https://open.spotify.com/artist/16oEz0ihXl8elwxOS0YMNF",
+		"spotify_id": "16oEz0ihXl8elwxOS0YMNF",
+		"genres": ""
+	},
+	{
+		"name": "Foreign Air",
+		"agency": "TEST",
+		"songkick_id": 458149,
+		"image_url": "https://i.scdn.co/image/c8cd16e10e2fdf90f45ad3e3f2756527df3ce1db",
+		"popularity": 61,
+		"spotify_followers": 29075,
+		"spotify_url": "https://open.spotify.com/artist/5ApQnMT6oR8eLguf24xb9S",
+		"spotify_id": "5ApQnMT6oR8eLguf24xb9S",
+		"genres": "indie pop, indie poptimism, indie psych-rock, indietronica, modern alternative rock, modern rock, vapor soul"
+	},
+	{
+		"name": "Alex Adair",
+		"agency": "TEST",
+		"songkick_id": 8437553,
+		"image_url": "https://i.scdn.co/image/15183e9f3e2ae72142a1195fe891c7dda35a8517",
+		"popularity": 55,
+		"spotify_followers": 32711,
+		"spotify_url": "https://open.spotify.com/artist/1mrrvBvbrm28iYaPlJ9mG5",
+		"spotify_id": "1mrrvBvbrm28iYaPlJ9mG5",
+		"genres": "deep tropical house, house, tropical house"
+	},
+	{
+		"name": "Alex Ross",
+		"agency": "TEST",
+		"songkick_id": 582842,
+		"image_url": "https://i.scdn.co/image/65829303bf1b15ee8f28dfaaf41fdc89804e419e",
+		"popularity": 51,
+		"spotify_followers": 1271,
+		"spotify_url": "https://open.spotify.com/artist/5pK858DFAWCmE2tM4jZxYC",
+		"spotify_id": "5pK858DFAWCmE2tM4jZxYC",
+		"genres": ""
+	}
+]
