@@ -2,9 +2,9 @@ const axios = require(`axios`);
 var SpotifyWebApi = require(`spotify-web-api-node`);
 const fs = require(`fs-extra`);
 
-const SPOTIFY_CLIENT_ID = require(`./keys`).SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = require(`./keys`).SPOTIFY_CLIENT_SECRET;
-const SONGKICK_KEY = require(`./keys`).SONGKICK_KEY;
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const SONGKICK_KEY = process.env.SONGKICK_KEY;
 
 const testAgency = require(`./agencies/testAgency`);
 
@@ -26,7 +26,7 @@ const makeCalls = async (agencyData, agency) => {
 
     agencyData.map(async artist => {
       const artistInfo = await getArtistInfo(artist, agency, token);
-      axios.post('http://localhost:5000/api/v1/artists', artistInfo);
+      axios.post('https://talent-buyer-api.herokuapp.com/api/v1/artists', artistInfo);
     });
 
     // const result = await Promise.all(unresolved);
