@@ -7,12 +7,9 @@ const SPOTIFY_CLIENT_SECRET = require(`./keys`).SPOTIFY_CLIENT_SECRET;
 const SONGKICK_KEY = require(`./keys`).SONGKICK_KEY;
 
 const testAgency = require(`./agencies/testAgency`);
-const caa1 = require(`./agencies/caa/caaArtistData.js`).slice(0, 40);
-const caa2 = require(`./agencies/caa/caaArtistData.js`).slice(40, 80);
-const caa3 = require(`./agencies/caa/caaArtistData.js`).slice(80, 120);
-const caa4 = require(`./agencies/caa/caaArtistData.js`).slice(120, 160);
-const caa5 = require(`./agencies/caa/caaArtistData.js`).slice(160, 180);
-const caa6 = require(`./agencies/caa/caaArtistData.js`).slice(80, 120);
+
+const caaArtists = require(`./agencies/caa/caaArtistData.json`)
+const utaArtists = require(`./agencies/uta/utaArtistData.json`)
 
 var spotifyApi = new SpotifyWebApi({
   clientId: SPOTIFY_CLIENT_ID,
@@ -48,7 +45,27 @@ const makeCalls = async (agencyData, agency) => {
   }
 };
 
-makeCalls(caa4, `caa`);
+const firstRun = () => {
+  caaArtists.forEach(function(artist, index) {
+  setTimeout(function(){
+    makeCalls([artist], 'caa')
+  }, index * 300)
+})
+}
+
+const secondRun = () => {
+  utaArtists.forEach(function(artist, index) {
+  setTimeout(function(){
+    makeCalls([artist], 'uta')
+  }, index * 300)
+})
+}
+
+const seedArtists = async () => {
+  await firstRun();
+  await secondRun();
+}
+
 
 const getArtistInfo = async (artistName, agency, token) => {
   try {
@@ -67,7 +84,7 @@ const getArtistInfo = async (artistName, agency, token) => {
       };
     }
   } catch (error) {
-    console.log(error);
+    console.log('---ERROR---');
   }
 };
 
@@ -96,6 +113,8 @@ const getSpotifyInfo = async (artistName, token) => {
       return spotifyInfo;
     }
   } catch (error) {
-    console.log(error);
+    console.log('---ERROR---');
   }
 };
+
+seedArtists()
