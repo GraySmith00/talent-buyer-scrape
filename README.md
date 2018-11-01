@@ -1,83 +1,82 @@
 # Talent Buyer Scraper (Artist Web-Scraping Microservice)
 
-This app is currently deployed at [http://general-alley.surge.sh/](http://general-alley.surge.sh/)
-
-This app was coded by [Tristan Bambauer](https://github.com/TristanB17) and [John Roemer](https://github.com/jtrtj)
 
 ## Purpose of this Repo
 
-This app was designed as a small calorie tracking program for an individual user. The user has a list of foods, which can be viewed on the endpoint '/api/foods'. 
+This app (built with [Node.js](https://nodejs.org/en/)) acts as a small microservice component of the existing repositories:
 
-![Settings Window](https://i.imgur.com/fEvs9aI.png)
+**Talent Buyer API**
 
-A user is also able to add a food to the database with a name and a calorie amount. Once created, the food can also be edited and/or removed from the database using the small dropdown menu on the right of all listed foods (_pictured below_). 
+A RESTful JSON API built to serve as the backend for Talent Buyer Client: a tool for music talent buyers to schedule concerts, organize offers, review riders, and determine financial provisions required for an individual show.
 
-![Settings Window](https://i.imgur.com/WFS2jFz.png)
+* Repository hosted on: [Github](https://github.com/colinwarmstrong/talent-buyer-api)
+* Code deployed to: [Heroku](https://talent-buyer-api.herokuapp.com/)
 
-A meals page is also visible, and can have foods (both existing and added from the foods page) added to or removed from it.
+**Talent Buyer Client**
 
-![Settings Window](https://i.imgur.com/DTKitrt.png)
+An organizational tool for music talent buyers to browse artists at all the major agencies, keep track of their venue's calendar and create and edit offers to send out to agents.
 
-Users can also go to the recipes page, wherein they can check existing foods off a table and then receive recipies which include those selected foods as ingredients. This was achieved by making a fetch call to the [yummly API](https://developer.yummly.com/)
+* Repository hosted on: [Github](https://github.com/GraySmith00/talent-buyer-client)
+* Code deployed to: [Heroku](https://talent-buyer.herokuapp.com/)
 
-![Settings Window](https://i.imgur.com/ESwQsHp.png)
+Potential show buyers have a dashboard which displays dates they have an artist reserved, as well offers they have submitted, but have yet to be confirmed by the artist/agent thereof, and a watchlist of upcoming popular artists. 
 
-## Functionality
+![dashboard](https://i.imgur.com/Je4OJt6.png)
 
-**This app was designed with the following goals in mind:**
+### Scraping Functionality
 
-1. CRUD foods to a database
+This scraper interacts only with the api, returning artist names from the [United Talent Agency (UTA)](https://music.utatouring.com/full-roster/') and the [Creative Artists Agency (CAA)](https://www.caa.com/entertainmenttalent/touring). Only these two larger Talent Agencies were selected due to constraints on number of lines of code maintained by Heroku. The scraper uses [Nightmare](http://www.nightmarejs.org/) to pull artist names from these agencies' respective websites:
 
-2. Establish a database relation between foods and meals
+### Posting to Talent Buyer API
 
-3. Compare calories to goals (meal and total)
+The microservice also stores the name in a JSON file, which it uses to make calls to the Songkick and Spotify APIs: 
 
-4. View calorie calculations in diary
+* [Songkick API - Documentation](https://www.songkick.com/developer/response-objects)
+* [Spotify Web API - Documentation](https://developer.spotify.com/documentation/web-api/)
 
-5. Create an app that the user can navigate through without having the page refreshed 
+Both APIs are used to return information such as name, agency, popularity, spotify followers and images of the performers in question. 
 
-6. Consume the same endpoints that built in an Express server (also made by the two authors of this project)
+This information is then uses a POST action on an endpoint in the Talent Buyer API to update existing or create new artists. Using the [Heroku Scheduler](https://elements.heroku.com/addons/scheduler) addon, the service will automatically conduct both of these actions within an hour. 
 
-7. Use fetch to retrieve a response from an API
-
-8. To manipulate JSON objects
-
-## Initial Setup
-
-1. Clone this repo into the desired folder with the command
-
-  ```shell
-  git clone git@github.com:TristanB17/quantified-self-fe
-  ```
-2. Change into the `quantified-self-fe` directory
-
-3. Install the dependencies of the starter kit
-
-  ```shell
-  npm install
-  ```
-  
-## Running the Server Locally
-
-This project uses data seeded from [this Express API](https://github.com/jtrtj/qs-api-express). To run the code locally, use the command:
-
-```shell
-npm start
-```
-
-Once the server is running, enter this address:
-
-* `http://localhost:8080/` into a browser to run your application.
 
 ## Deployment
 
-* The page can also be viewed using the hosting site [Heroku]()
+This service has been deployed to hosting site [Heroku](https://dashboard.heroku.com/apps/talentbuyer-scraper)
 
-## Built With
+## Local Setup
 
-* [JavaScript](https://www.javascript.com/)
-* [jQuery](https://jquery.com/)
+Move into the desired folder and clone the repo
 
-## Tested with
-* [Mocha](https://mochajs.org/)
-* [Chai](https://chaijs.com/)
+```
+git clone https://github.com/GraySmith00/talent-buyer-scrape
+```
+
+Email gray.smith00@gmail.com for Private Keys
+
+Run `npm install` from the root directory
+
+Test the functionality of the files using the `node` command 
+
+
+## Authors
+
+* **Colin Armstrong**  
+ 	- [GitHub](https://github.com/colinwarmstrong)
+ 	- [LinkedIn](https://www.linkedin.com/in/colinwarmstrong/)
+
+* **Tristan Bambauer**  
+ 	- [GitHub](https://github.com/TristanB17)
+ 	- [LinkedIn](https://www.linkedin.com/in/tristan-bambauer/)
+
+* **Tim Fischer**  
+ 	- [GitHub](https://github.com/TFisch)
+ 	- [LinkedIn](https://www.linkedin.com/in/timrfischer/)
+
+* **Gray Smith**  
+ 	- [GitHub](https://github.com/GraySmith00)
+ 	- [LinkedIn](https://www.linkedin.com/in/graysmith00/)
+
+
+## Contributing
+
+If you would like to contribute, feel free to reach out to any of the authors via email or LinkedIn.
